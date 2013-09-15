@@ -1,0 +1,14 @@
+This project inherits from / extends DMRlink (https://github.com/n0mjs710/DMRlink) for the purpose of publishing when events happen to PubNub for public dissemination.
+
+Use ipsc_monitor_pubnub.py in place of ipsc.py (or create your own mixin class if you are overriding other pieces of functionality as well.)
+
+You will want to add a section that looks like 
+        'PUBNUB': {
+            'PUBLIC_KEY': 'pub-c-9c4768b1-9a0e-4e71-bbd0-23d56af6d7ee',
+            'PRIVATE_KEY': 'sub-c-d128b1fc-149f-11e3-9e5f-02ee2ddab7fe',
+            'group_voice': False,
+            'peer_keepalive': 'ipscmonitor',
+            'peer_registration': 'ipscmonitor',
+            'peer_registration_reply': 'ipscmonitor',
+        },
+to your my_ipsc_config.py in order for everything to work. It is defined at the network level, so if you have multiple IPSC networks but only want to have notifications from one (or separate public/private keys and/or channel names for each) you can accomplish that.
